@@ -104,64 +104,24 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-
-        # at this point light set to "off"
-        
-        # while loop; while light is off
-        while not self.light_is_on():
-    
-            # flip to ON
-            self.set_light_on()
-            # pick up card
-            if self._position == None:
-                self.swap_item()
+        while self.can_move_right():
+            # pick up first item
             self.swap_item()
-            # move right
-
-            # if at the end 
-          
+            # if robot can move right
             while self.can_move_right():
-                # for loop for list
                 self.move_right()
-
-                
-                # self.set_light_off()
-                    # otherwise if its smaller drop it to the left
-                # compare items
-                # if item is greater and you can move right keep moving right 
-                # if self.compare_item() == 1 and self.can_move_right():
-                #     self.move_right()
-                # elif self.compare_item() == -1 and self.can_move_right() == False: # if at the end and card is bigger swap
-                #     #swap
-                #     self.swap_item()
-                #     # if swapped turn light "OFF"
-                #     self.set_light_off()
-                #     # go back to beginning 
-                #     while self.move_right():
-                #         self.move_right()
-                # #if item is less 
-                # else: 
-                #     #do swap
-                #     # turn light off:
-                #     # self.swap_item()
-                #     # self.set_light_off()
-                #     print('less than')
-            
-        #once we are at the end
-        if self.can_move_right() == False:
-        # we want to switch if card is larger
-            if self.compare_item() == 1:
-                self.swap_item()
-                # self.set_light_off()
-                # move to the start
-                self.move_to_start()
-                if self.compare_item() == None:
+                # if the held value is greater, swap them
+                if self.compare_item() == 1:
                     self.swap_item()
-    
-            else:
+            while self.compare_item() != None:
+                 # at the end of the list, move all the way back to the spot before the None value.
                 self.move_left()
-                self.swap_item
-l = [3, 2, 1]
+            # Swap the held value with None
+            self.swap_item()
+            self.move_right()
+
+
+l = [2, 1, 3]
 robot = SortingRobot(l)
 
 robot.sort()
