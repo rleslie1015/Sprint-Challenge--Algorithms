@@ -114,7 +114,7 @@ class SortingRobot:
                 if self.compare_item() == 1:
                     self.swap_item()
             while self.compare_item() != None:
-                 # at the end of the list, move all the way back to the spot before the None value.
+                 # at the end of the list, move all the way back left to the spot where the None value is
                 self.move_left()
             # Swap the held value with None
             self.swap_item()
